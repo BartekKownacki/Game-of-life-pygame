@@ -39,7 +39,6 @@ while run:
     menu_controller.draw_menu()
     if(grid_controller.is_simulation_running):
         grid_controller.one_step()
-        # sleep(0.1)
     
     pygame.display.flip()
     clock.tick(15)
