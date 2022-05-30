@@ -1,36 +1,24 @@
-from ast import PyCF_ALLOW_TOP_LEVEL_AWAIT
-from math import floor
 import sys, pygame
-import colors as c
+from time import sleep
+import static.colors as c
 
+from static import init_data
+from controllers.GridController import GridController
+from controllers.MenuController import MenuController
 
+dimensions = width, height = init_data.width, init_data.height
 pygame.init()
-
-
-cell_size = 16
-radius = 6
-gap_size = 4
-grid_size_x = 32
-grid_size_y = 24 
-menu_height = 100
-button_dimensions = 80, 42
-grid_dimensions = (cell_size + gap_size)*grid_size_x, (cell_size + gap_size)*grid_size_y
-size = width, height = (grid_dimensions[0], grid_dimensions[1] + menu_height) 
-listOfCircles = []
-
-def create_grid(x, y):
-    grid = [[0 for i in range(y)] for j in range(x)]
-    return grid
-
-def draw_grid(grid):
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            pygame.draw.rect(screen, c.light_gray, (i * (cell_size + gap_size), j * (cell_size + gap_size), cell_size, cell_size))
-            if grid[i][j] == 1:
-                pygame.draw.circle(screen, c.black, (i * (cell_size + gap_size) + (cell_size/2), j * (cell_size + gap_size) + (cell_size/2)), radius)
+pygame.font.init()
+pixel_width = (init_data.cell_size + init_data.gap_size)*width + init_data.gap_size
+pixel_grid_height = (init_data.cell_size + init_data.gap_size)*height  
+size = pixel_width, pixel_grid_height + init_data.menu_height
 
 screen = pygame.display.set_mode(size)
-grid = create_grid(grid_size_x, grid_size_y)
+pygame.display.set_caption("Game of Life - Bartosz Kownacki ")
+
+grid_controller = GridController(screen, width, height, init_data.cell_size, init_data.gap_size, c.light_gray)
+menu_controller = MenuController(screen, pixel_width, init_data.menu_height, init_data.buttons, pixel_width, pixel_grid_height, grid_controller)
+
 run = True
 while run:
     screen.fill(c.black)
@@ -39,15 +27,15 @@ while run:
             run = False
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            x, y = pygame.mouse.get_pos()
-            x = floor(x/(cell_size+gap_size))
-            y = floor(y/(cell_size+gap_size))
-            value = grid[x][y]
-            grid[x][y] = 1 if value == 0 else 0
-            
+            if event.pos[1] > pixel_grid_height:
+                menu_controller.handle_click(event.pos[0], event.pos[1])
+            else: 
+                grid_controller.handle_click(event.pos[0], event.pos[1], True)
 
-    
-    draw_grid(grid)
-    for circle in listOfCircles:
-        pygame.draw.circle(screen, c.red, circle, radius)
-    pygame.display.update()
+    grid_controller.draw_grid()
+    menu_controller.draw_menu()
+    if(grid_controller.is_simulation_running):
+        grid_controller.one_step()
+        sleep(0.1)
+
+    pygame.display.flip()
