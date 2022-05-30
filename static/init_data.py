@@ -32,4 +32,28 @@ buttons = [{
         "image_path": "./assets/step.png",
         "action": "step",
         "is_visible": True
+    },
+    {
+        "index": 4,
+        "image_path": "./assets/clear.png",
+        "action": "clear",
+        "is_visible": True
     }]
+statuses=[{
+        "index": 0,
+        "image_path": "./assets/status.png",
+        "is_visible": True
+    },
+    {
+        "index": 1,
+        "image_path": "./assets/status_run.png",
+        "is_visible": False
+    },
+    {
+        "index": 2,
+        "image_path": "./assets/status_stop.png",
+        "is_visible": True
+    }]
+
+status_dimensions_x = 104
+status_dimensions_y = 42

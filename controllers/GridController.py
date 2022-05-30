@@ -23,19 +23,20 @@ class GridController:
         random_x = r.randint(0, self.width-1)
         random_y = r.randint(0, self.height-1)
         
-        for i in range(1000):
+        for i in range(2000):
             random_x = r.randint(0, self.width-1)
             random_y = r.randint(0, self.height-1)
             grid[random_x][random_y] = 1
         return grid
 
+    def clear_grid(self):
+        self.grid.grid = self.create_grid(self.grid.width, self.grid.height)
+
     def randomize_grid(self):
         grid = self.create_grid(self.width, self.height)
-        
         random_x = r.randint(0, self.width-1)
         random_y = r.randint(0, self.height-1)
-        
-        for i in range(1000):
+        for i in range(2000):
             random_x = r.randint(0, self.width-1)
             random_y = r.randint(0, self.height-1)
             grid[random_x][random_y] = 1
