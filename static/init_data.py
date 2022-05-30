@@ -11,47 +11,47 @@ divider_size = 2
 btn_gap_size = 10
 buttons = [{
         "index": 0,
-        "image_path": "./assets/stop.png",
+        "image_path": "./assets/stop.bmp",
         "action": "stop",
         "is_visible": True
     },
     {
         "index": 1,
-        "image_path": "./assets/play.png",
+        "image_path": "./assets/play.bmp",
         "action": "play",
         "is_visible": True
     },
     {
         "index": 2,
-        "image_path": "./assets/randomize.png",
+        "image_path": "./assets/randomize.bmp",
         "action": "randomize",
         "is_visible": True
     },
     {
         "index": 3,
-        "image_path": "./assets/step.png",
+        "image_path": "./assets/step.bmp",
         "action": "step",
         "is_visible": True
     },
     {
         "index": 4,
-        "image_path": "./assets/clear.png",
+        "image_path": "./assets/clear.bmp",
         "action": "clear",
         "is_visible": True
     }]
 statuses=[{
         "index": 0,
-        "image_path": "./assets/status.png",
+        "image_path": "./assets/status.bmp",
         "is_visible": True
     },
     {
         "index": 1,
-        "image_path": "./assets/status_run.png",
+        "image_path": "./assets/status_run.bmp",
         "is_visible": False
     },
     {
         "index": 2,
-        "image_path": "./assets/status_stop.png",
+        "image_path": "./assets/status_stop.bmp",
         "is_visible": True
     }]
 
