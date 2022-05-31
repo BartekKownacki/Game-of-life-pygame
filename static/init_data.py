@@ -1,16 +1,17 @@
 """
 Initial data for Game of Life
 """
-CELL_SIZE = 8
+CELL_SIZE = 6
 RADIUS = int(CELL_SIZE/2)
 GAP_SIZE = 1
-WIDTH = 64
-HEIGHT = 48
+WIDTH = 96
+HEIGHT = 72
 MENU_HEIGHT = 100
 BUTTON_DIMENSIONS_X = 80
 BUTTON_DIMENSIONS_Y = 42
 DIVIDER_SIZE = 2
 BTN_GAP_SIZE = 10
+FPS = 15
 BUTTONS = [{
         "index": 0,
         "image_path": "./assets/stop.bmp",

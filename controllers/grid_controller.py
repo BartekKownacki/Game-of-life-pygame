@@ -21,7 +21,9 @@ class GridController:
                         self.create_random_grid(),
                         {"cell_size": props["cell_size"],
                             "gap_size": props["gap_size"],
-                            "cell_color": props["cell_color"]
+                            "cell_color": props["cell_color"],
+                            "cell_live_color": props["cell_live_color"],
+                            "cell_live_radius": props["cell_live_radius"],
                         })
         self.view = GridView(screen, props["cell_size"], props["gap_size"])
 
@@ -99,7 +101,7 @@ class GridController:
         """
         draw grid on screen
         """
-        self.view.draw_grid(self.grid.grid)
+        self.view.draw_grid(self.grid)
 
     def one_step(self):
         """

@@ -2,9 +2,6 @@
 View file for the grid.
 """
 import pygame
-from static import colors as c
-from static import init_data as init
-
 
 class GridView:
     """
@@ -22,16 +19,17 @@ class GridView:
         """
         Draw the grid.
         """
-        for i, element in enumerate(grid):
-            for j, item in enumerate(grid[i]):
+        for i, _ in enumerate(grid.grid):
+            for j, _ in enumerate(grid.grid[i]):
                 x_coordinate, y_coordinate = self.convert_to_pixel_coordinates(i, j)
                 pygame.draw.rect(self.screen,
-                                c.LIGHT_GRAY,
+                                grid.cell_color,
                                 (x_coordinate, y_coordinate, self.cell_size, self.cell_size))
-                if grid[i][j] == 1:
-                    pygame.draw.circle(self.screen, c.DARK_GREEN,
+                if grid.grid[i][j] == 1:
+                    pygame.draw.circle(self.screen, grid.cell_live["color"],
                                         (x_coordinate + (self.cell_size/2),
-                                            y_coordinate + (self.cell_size/2)), init.RADIUS)
+                                            y_coordinate + (self.cell_size/2)),
+                                        grid.cell_live["radius"])
 
 
     def convert_to_pixel_coordinates(self, index_x, index_y):
