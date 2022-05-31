@@ -1,12 +1,15 @@
-red = 255, 0, 0
-green = 0, 255, 0
-dark_green = 0, 100, 0
-blue = 0, 0, 255
-yellow = 255, 255, 0
-cyan = 0, 255, 255
-magenta = 255, 0, 255
-white = 255, 255, 255
-black = 0, 0, 0
-gray = 128, 128, 128
-dark_gray = 64, 64, 64
-light_gray = 192, 192, 192
+"""
+Colors for Game of Life
+"""
+RED = 255, 0, 0
+GREEN = 0, 255, 0
+DARK_GREEN = 0, 100, 0
+BLUE = 0, 0, 255
+YELLOW = 255, 255, 0
+CYAN = 0, 255, 255
+MAGENTA = 255, 0, 255
+WHITE = 255, 255, 255
+BLACK = 0, 0, 0
+GRAY = 128, 128, 128
+DARK_GRAY = 64, 64, 64
+LIGHT_GRAY = 192, 192, 192

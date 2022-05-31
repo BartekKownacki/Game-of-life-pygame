@@ -1,15 +1,17 @@
-font_size = 24
-cell_size = 8
-radius = int(cell_size/2)
-gap_size = 1
-width = 64
-height = 48
-menu_height = 100
-button_dimensions_x = 80
-button_dimensions_y = 42
-divider_size = 2
-btn_gap_size = 10
-buttons = [{
+"""
+Initial data for Game of Life
+"""
+CELL_SIZE = 8
+RADIUS = int(CELL_SIZE/2)
+GAP_SIZE = 1
+WIDTH = 64
+HEIGHT = 48
+MENU_HEIGHT = 100
+BUTTON_DIMENSIONS_X = 80
+BUTTON_DIMENSIONS_Y = 42
+DIVIDER_SIZE = 2
+BTN_GAP_SIZE = 10
+BUTTONS = [{
         "index": 0,
         "image_path": "./assets/stop.bmp",
         "action": "stop",
@@ -39,7 +41,7 @@ buttons = [{
         "action": "clear",
         "is_visible": True
     }]
-statuses=[{
+STATUSES =[{
         "index": 0,
         "image_path": "./assets/status.bmp",
         "is_visible": True
@@ -54,6 +56,5 @@ statuses=[{
         "image_path": "./assets/status_stop.bmp",
         "is_visible": True
     }]
-
-status_dimensions_x = 104
-status_dimensions_y = 42
+STATUS_DIMENSIONS_X = 104
+STATUS_DIMENSIONS_Y = 42
